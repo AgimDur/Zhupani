@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6;
+  }
+}
+
+/* Family Tree Styles */
+.family-tree-node {
+  @apply rounded-lg shadow-md p-4 border-2 cursor-pointer transition-all duration-200;
+}
+
+.family-tree-node.male {
+  @apply bg-blue-50 border-blue-300 dark:bg-blue-900/20 dark:border-blue-600;
+}
+
+.family-tree-node.female {
+  @apply bg-pink-50 border-pink-300 dark:bg-pink-900/20 dark:border-pink-600;
+}
+
+.family-tree-node.deceased {
+  @apply bg-gray-100 border-gray-400 dark:bg-gray-800 dark:border-gray-500 opacity-75;
+}
+
+.family-tree-node:hover {
+  @apply shadow-lg transform scale-105;
+}
+
+/* React Flow Overrides */
+.react-flow__node {
+  @apply font-sans;
+}
+
+.react-flow__edge {
+  @apply stroke-gray-400 dark:stroke-gray-500;
+}
+
+.react-flow__controls {
+  @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg;
+}
+
+.react-flow__controls button {
+  @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+}

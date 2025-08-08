@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  role      String   @default("FAMILY_MEMBER") // ADMIN, FAMILY_MEMBER, VISITOR
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  createdFamilies Family[] @relation("FamilyCreator")
+  posts          Post[]
+  comments       Comment[]
+
+  @@map("users")
+}
+
+model Family {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  isPublic    Boolean @default(false)
+  createdBy   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  creator User     @relation("FamilyCreator", fields: [createdBy], references: [id])
+  persons Person[]
+  posts   Post[]
+
+  @@map("families")
+}
+
+model Person {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  birthName String?
+  birthYear Int?
+  deathYear Int?
+  gender    String   // MALE, FEMALE, OTHER
+  photo     String?
+  familyId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  family              Family         @relation(fields: [familyId], references: [id])
+  relationshipsFrom   Relationship[] @relation("PersonFrom")
+  relationshipsTo     Relationship[] @relation("PersonTo")
+
+  @@map("persons")
+}
+
+model Relationship {
+  id              String    @id @default(cuid())
+  personId        String
+  relatedPersonId String
+  type            String    // PARENT, CHILD, SPOUSE, EX_SPOUSE, SIBLING
+  startDate       DateTime?
+  endDate         DateTime?
+  createdAt       DateTime  @default(now())
+
+  // Relations
+  person        Person @relation("PersonFrom", fields: [personId], references: [id])
+  relatedPerson Person @relation("PersonTo", fields: [relatedPersonId], references: [id])
+
+  @@unique([personId, relatedPersonId, type])
+  @@map("relationships")
+}
+
+model Post {
+  id         String   @id @default(cuid())
+  title      String
+  content    String
+  images     String?  // JSON string for image URLs
+  visibility String   @default("FAMILY") // PUBLIC, FAMILY, ADMIN
+  authorId   String
+  familyId   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  author   User      @relation(fields: [authorId], references: [id])
+  family   Family?   @relation(fields: [familyId], references: [id])
+  comments Comment[]
+
+  @@map("posts")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  postId    String
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  post   Post @relation(fields: [postId], references: [id])
+  author User @relation(fields: [authorId], references: [id])
+
+  @@map("comments")
+}
+
