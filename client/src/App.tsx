@@ -2,17 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from './contexts/AuthContext';
-import { Layout } from './components/Layout';
-import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { FamilyTreePage } from './pages/FamilyTreePage';
-import { FamilyTreeView } from './components/FamilyTree/FamilyTreeView';
-import { PostsPage } from './pages/PostsPage';
-import { ProfilePage } from './pages/ProfilePage';
-import { AdminPage } from './pages/AdminPage';
-import { ProtectedRoute } from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext.tsx';
+import { Layout } from './components/Layout.tsx';
+import { HomePage } from './pages/HomePage.tsx';
+import { LoginPage } from './pages/LoginPage.tsx';
+import { RegisterPage } from './pages/RegisterPage.tsx';
+import { FamilyTreePage } from './pages/FamilyTreePage.tsx';
+import { FamilyTreeView } from './components/FamilyTree/FamilyTreeView.tsx';
+import { PostsPage } from './pages/PostsPage.tsx';
+import { ProfilePage } from './pages/ProfilePage.tsx';
+import { AdminPage } from './pages/AdminPage.tsx';
+import { ProtectedRoute } from './components/ProtectedRoute.tsx';
 import './index.css';
 
 const queryClient = new QueryClient({
