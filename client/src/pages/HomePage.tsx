@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import {
   UserGroupIcon,
   HeartIcon,
@@ -8,8 +8,8 @@ import {
   DevicePhoneMobileIcon,
   PlusIcon,
 } from '@heroicons/react/24/outline';
-import { UserStats } from '../components/Dashboard/UserStats';
-import { RecentActivity } from '../components/Dashboard/RecentActivity';
+import { UserStats } from '../components/Dashboard/UserStats.tsx';
+import { RecentActivity } from '../components/Dashboard/RecentActivity.tsx';
 
 export const HomePage: React.FC = () => {
   const { user } = useAuth();

@@ -12,8 +12,8 @@ import ReactFlow, {
   NodeTypes,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { PersonNode } from './PersonNode';
-import { api } from '../../services/api';
+import { PersonNode } from './PersonNode.tsx';
+import { api } from '../../services/api.ts';
 import toast from 'react-hot-toast';
 
 interface Person {

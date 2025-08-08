@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PlusIcon, UserPlusIcon, LinkIcon } from '@heroicons/react/24/outline';
-import { FamilyTreeVisualization } from './FamilyTreeVisualization';
-import { PersonForm } from './PersonForm';
-import { RelationshipForm } from './RelationshipForm';
-import { api } from '../../services/api';
+import { FamilyTreeVisualization } from './FamilyTreeVisualization.tsx';
+import { PersonForm } from './PersonForm.tsx';
+import { RelationshipForm } from './RelationshipForm.tsx';
+import { api } from '../../services/api.ts';
 import toast from 'react-hot-toast';
 
 interface Person {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import {
   HomeIcon,
   UserGroupIcon,
@@ -11,7 +11,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { GlobalSearch } from './Search/GlobalSearch';
+import { GlobalSearch } from './Search/GlobalSearch.tsx';
 
 export const Navigation: React.FC = () => {
   const { user, logout } = useAuth();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navigation } from './Navigation';
+import { Navigation } from './Navigation.tsx';
 
 export const Layout: React.FC = () => {
   return (
