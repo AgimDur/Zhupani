@@ -6,8 +6,8 @@ import {
   ChartBarIcon,
   CogIcon
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../contexts/AuthContext';
-import { api } from '../services/api';
+import { useAuth } from '../contexts/AuthContext.tsx';
+import { api } from '../services/api.ts';
 import toast from 'react-hot-toast';
 
 interface User {

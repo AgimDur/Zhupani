@@ -6,8 +6,8 @@ import {
   UserGroupIcon,
   LinkIcon
 } from '@heroicons/react/24/outline';
-import { api } from '../../services/api';
-import { useAuth } from '../../contexts/AuthContext';
+import { api } from '../../services/api.ts';
+import { useAuth } from '../../contexts/AuthContext.tsx';
 
 interface Activity {
   id: string;

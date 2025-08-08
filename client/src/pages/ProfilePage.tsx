@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import { UserIcon, EnvelopeIcon, CalendarIcon } from '@heroicons/react/24/outline';
-import { UserStats } from '../components/Dashboard/UserStats';
+import { UserStats } from '../components/Dashboard/UserStats.tsx';
 
 export const ProfilePage: React.FC = () => {
   const { user } = useAuth();

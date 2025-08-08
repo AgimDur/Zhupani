@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { PlusIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
-import { PostCard } from '../components/Posts/PostCard';
-import { PostForm } from '../components/Posts/PostForm';
-import { api } from '../services/api';
+import { PostCard } from '../components/Posts/PostCard.tsx';
+import { PostForm } from '../components/Posts/PostForm.tsx';
+import { api } from '../services/api.ts';
 import toast from 'react-hot-toast';
 
 interface Post {
